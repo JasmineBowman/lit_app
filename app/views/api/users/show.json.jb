@@ -1,0 +1,13 @@
+{
+id: @user.id,
+first_name: @user.first_name,
+last_name: @user.last_name,
+address: @user.address,
+city: @user.city,
+zip: @user.zip,
+high_school: @user.high_school,
+grade_level: @user.grade_level,
+age: @user.age,
+email: @user.email,
+phone: @user.phone 
+}
