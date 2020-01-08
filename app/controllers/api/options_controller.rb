@@ -1,13 +1,18 @@
 class Api::OptionsController < ApplicationController
-before_action :authenticate_user, except: [:index, :show]
+  before_action :authenticate_user, except: [:index, :show]
 
   def index
     @options = Option.all
-    render "index.json.jb"
+    render 'index.json.jb'
+  end
+
+  def show
+    @option = Option.find_by(id: params[:id])
+    render 'show.json.jb'
   end
 
   def create
-    @option = Option.new(
+    @Option = Option.new(
       title: params[:title],
       description: params[:description],
       industry: params[:industry],
@@ -16,25 +21,20 @@ before_action :authenticate_user, except: [:index, :show]
       user_id: current_user.id
     )
     if @option.save
-      render "show.json.jb"
+      render 'show.json.jb'
     else
-      render json: {errors: @option.errors.full_messages}, status: :bad_request
+      render json: {errors: @option.errors.full_messages}, status: unprocessable_entity
     end
-  end
-
-  def show
-    @option = Option.find_by(id: params[:id])
-    render "show.json.jb"
   end
 
   def update
     @option = Option.find_by(id: params[:id])
-    @option.title = params[:title] || @option.title
-    @option.description = params[:description] || @option.description
+    @option.title = params[:title] 
+    @option.description = params[:description] 
     if @option.save
-      render "show.json.jb"
+      render 'show.json.jb'
     else
-      render json: {errors: @option.errors.full_messages}, status: :bad_request
+      render json: {errors: @option.errors.full_messages}, status: unprocessable_entity
     end
   end
 
@@ -47,3 +47,36 @@ end
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end

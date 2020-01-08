@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     patch "/users/:id" => "users#update"
     delete "/users/:id" => "users#destroy"
 
-    get "/options" => "options#index"
-    get "/option/:id" => "options#show"
-    post "/options" => "options#create"
-    patch "/options/:id" => "options#update"
-    delete "/options/:id" => "options#destroy"
+    get "/disciplines" => "disciplines#index"
+    get "/discipline/:id" => "disciplines#show"
+    post "/disciplines" => "disciplines#create"
+    patch "/disciplines/:id" => "disciplines#update"
+    delete "/disciplines/:id" => "disciplines#destroy"
 
     post "/sessions" => "sessions#create"
   end

@@ -1,0 +1,10 @@
+@disciplines.map do |discipline|
+  {
+    id: discipline.id,
+    title: discipline.title, 
+    description: discipline.description,
+    industry: discipline.industry,
+    email: discipline.email,
+    phone: discipline.phone 
+  }
+end
