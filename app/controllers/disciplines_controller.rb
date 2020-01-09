@@ -28,4 +28,21 @@ class DisciplinesController < ApplicationController
     @discipline.save
     redirect_to "/disciplines/#{@discipline.id}"
   end
+
+  def edit
+    @discipline = Discipline.find_by(id: params[:id])
+    render 'edit.html.erb'
+  end
+
+  def update
+    @discipline = Discipline.find_by(id: params[:id])
+    @discipline.title = params[:title]
+    @discipline.start_date = params[:start_date]
+    @discipline.end_date = params[:end_date]
+    @discipline.path = params[:path]
+    @discipline.description = params[:description]
+    @discipline.industry = params[:industry]
+    @discipline.save
+    redirect_to "/disciplines/#{@discipline.id}"
+  end
 end

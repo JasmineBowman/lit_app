@@ -2,11 +2,22 @@ class Api::DisciplinesController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
 
   def index
+    # if current_user
+    #   @disciplines = current_user.disciplines
+    #   render 'index.json.jb'
+    # else
+    #   render json: []
+    # end
     @disciplines = Discipline.all
     render 'index.json.jb'
+
+    # @disciplines = Discipline.where("title LIKE ?", "%#{params[:search]}%")
+    # @disciplines = @disciplines.where("id > 5")
+    # @disciplines.order!(:start_date => :asc)
   end
 
   def show
+    the_id = params[:id]
     @discipline = Discipline.find_by(id: params[:id])
     render 'show.json.jb'
   end

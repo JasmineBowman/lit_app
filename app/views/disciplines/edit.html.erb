@@ -1,0 +1,13 @@
+hello from the edit page
+
+<form action="/disciplines/<%= @discipline.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <p>title: <input type="text" name="title" value="<%= @discipline.title %>"></p>
+  <p>start_date: <input type="text" name="start_date" value="<%= @discipline.start_date %>"></p>
+  <p>end_date: <input type="text" name="end_date" value="<%= @discipline.end_date %>"></p>
+  <p>path: <input type="text" name="path" value="<%= @discipline.path %>"></p>
+  <p>description: <input type="text" name="description" value="<%= @discipline.description %>"></p>
+  <p>industry: <input type="text" name="industry" value="<%= @discipline.industry %>"></p>
+
+  <input type="submit" value="Update a Discipline">
+</form>
