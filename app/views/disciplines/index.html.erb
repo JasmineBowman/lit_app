@@ -1,0 +1,10 @@
+<h1>hello from the index action</h1>
+
+<br>
+
+<% @disciplines.each do |discipline| %>
+  <p>title: <%= discipline.title %></p>
+  <a href="/disciplines/<%= discipline.id %>">Go to the Show Page</a>
+  <p>description: <%= discipline.description %></p>
+  <hr>
+<% end %>

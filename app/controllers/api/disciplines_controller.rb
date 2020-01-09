@@ -14,10 +14,11 @@ class Api::DisciplinesController < ApplicationController
   def create
     @discipline = Discipline.new(
       title: params[:title],
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      path: params[:path],
       description: params[:description],
       industry: params[:industry],
-      email: params[:email],
-      phone: params[:phone],
       user_id: current_user.id
     )
     if @discipline.save

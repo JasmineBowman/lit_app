@@ -1,0 +1,18 @@
+hello from the new action
+
+<form action="/disciplines" method="post">
+  <p>title: <input type="text" name="title"></p>
+  <p>start_date: <input type="text" name="start_date"></p>
+  <p>end_date: <input type="text" name="end_date"></p>
+  <p>path: <input type="text" name="path"></p>
+  <p>description: <input type="text" name="description"></p>
+  <p>industry: <input type="text" name="industry"></p>
+  
+  <select name="user_id">
+    <% @users.each do |user| %>
+      <option value="<%= user.id %>"><%= user.email %></option>
+    <% end %>
+  </select>  
+  <input type="submit" value="Add a New Discipline">
+</form>
+
